@@ -28,10 +28,9 @@ const bohlokoa = {
     location: "South Africa 🇿🇦",
 
     currentlyBuilding: [
-        "AI Engineering Operating System",
-        "Adaptive Learning Platform",
-        "Enterprise Workflow Systems",
-        "AI Powered SaaS"
+        "JournalX — a risk-to-reward trading journal",
+        "LearnZA — Adaptive Learning Platform",
+        "Scalable Workflow Systems",
     ],
 
     passions: [
@@ -92,39 +91,26 @@ const bohlokoa = {
 
 ---
 
-# 🔥 Featured Projects
+# 🔥 Featured Project
 
-## 🤖 AI Engineering Operating System
+## 📈 [JournalX](https://github.com/jah-guide/journalx-dashboard)
 
-An AI-powered software engineering company that runs entirely through autonomous engineering agents.
+A focused trading journal built around risk-to-reward—not money.
 
-> Spec → Architecture → Development → Testing → Deployment
+JournalX helps traders capture market ideas before execution, review outcomes afterward, and identify the conditions that create their edge.
 
----
+### Highlights
 
-## 🎓 Adaptive Learning Platform
-
-Personalized education platform that adapts to every student's learning style using AI.
-
----
-
-## 📑 Enterprise Operations Platform
-
-Inspection management software used for:
-
-- Asset Management
-- Workflow Automation
-- Report Generation
-- Project Management
-- Technician Scheduling
+- Before-and-after trade reviews with optional chart screenshots
+- R-based performance tracking with no money or account-balance fields
+- Daily journal markups for multiple pairs
+- Append-only markup updates for accountability
+- Trade history with setup, session, outcome, and review filters
+- Analytics by pair, setup, and session
+- Planned versus achieved reward and plan-adherence tracking
 
 ---
 
-## 💪 AI Gym Platform
-
-Automatically tracks workouts and generates social media content from training sessions.
-
----
 
 # 📊 GitHub Analytics
 
