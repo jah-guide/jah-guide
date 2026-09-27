@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FlowGate — SLA Service-Request Workflow (Case Study)</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --accent: #0e7490;
+      --border: #cbd5e1;
+      --bg-soft: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.35;
+      color: var(--ink);
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 12mm 14mm;
+      background: #fff;
+    }
+    h1 { font-size: 17pt; margin: 0 0 4px; letter-spacing: -0.02em; }
+    .subtitle { color: var(--muted); font-size: 10pt; margin-bottom: 10px; }
+    h2 {
+      font-size: 11pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin: 12px 0 6px;
+    }
+    p { margin: 4px 0 8px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+      margin: 6px 0 10px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 4px 6px;
+      vertical-align: top;
+    }
+    th { background: var(--bg-soft); text-align: left; font-weight: 600; }
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 8.5pt;
+      line-height: 1.25;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: 8px;
+      margin: 6px 0;
+      overflow: hidden;
+      white-space: pre;
+    }
+    .screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .shot {
+      border: 1px dashed var(--border);
+      background: #fafafa;
+      min-height: 52px;
+      padding: 6px;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+    .shot strong { display: block; color: var(--ink); font-size: 9pt; margin-bottom: 2px; }
+    .footer {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 6px;
+    }
+    .page-break { page-break-after: always; break-after: page; }
+    @media print {
+      body { padding: 10mm 12mm; }
+      @page { size: A4; margin: 10mm; }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>FlowGate — SLA service-request workflow</h1>
+  <p class="subtitle"><strong>Systems Analyst case study</strong> · Bohlokoa (<code>jah-guide</code>) · Northvale Shared Services (composite) · Next.js portfolio prototype</p>
+
+  <h2>Problem</h2>
+  <p>IT and operations requests arrive via <strong>email, chat, and ad-hoc forms</strong>. Intake is manual, approvals live in spreadsheets, and leadership discovers <strong>SLA breaches only after escalations</strong>.</p>
+  <table>
+    <tr><th>Pain</th><th>Impact</th></tr>
+    <tr><td>Fragmented intake</td><td>Duplicate work, lost context</td></tr>
+    <tr><td>Informal triage</td><td>Wrong priority assigned late</td></tr>
+    <tr><td>Unclear approval path</td><td>Stalls between manager and director</td></tr>
+    <tr><td>Reactive SLA reporting</td><td>Breaches found after customer impact</td></tr>
+  </table>
+
+  <h2>Stakeholders</h2>
+  <table>
+    <tr><th>Stakeholder</th><th>Key need</th></tr>
+    <tr><td>Business requester</td><td>Status visibility, clear reject reasons</td></tr>
+    <tr><td>Ops analyst</td><td>Single queue, triage tools, SLA signals</td></tr>
+    <tr><td>Line manager / Director</td><td>Sequential gates with audit trail</td></tr>
+    <tr><td>Head of Shared Services</td><td>Live breach and queue posture</td></tr>
+  </table>
+
+  <h2>To-be process</h2>
+  <pre>
+Requester     Ops analyst      Manager         Director
+    |              |               |               |
+    v              v               v               v
+[Intake] ---> [Triage/route] -> [Approve/Reject] -> [Approve/Reject]
+    |              |               |               |
+    +--------------+---------------+---------------+
+                          |
+              SLA: P1 4h · P2 24h · P3 72h (from createdAt)
+                          |
+            On Track  |  At Risk (≤25% left)  |  Breached
+  </pre>
+  <p><strong>States:</strong> submitted → pending_manager → pending_director → approved | rejected</p>
+
+  <h2>Sample functional requirements</h2>
+  <table>
+    <tr><th>ID</th><th>Requirement</th><th>Priority</th></tr>
+    <tr><td>FR-01</td><td>Structured capture; start SLA clock on create</td><td>Must</td></tr>
+    <tr><td>FR-05</td><td>Triage Submitted → route to manager + timeline</td><td>Must</td></tr>
+    <tr><td>FR-06</td><td>Manager approve/reject at manager gate</td><td>Must</td></tr>
+    <tr><td>FR-04</td><td>SLA posture: On Track / At Risk / Breached</td><td>Must</td></tr>
+    <tr><td>FR-12</td><td>Control board counts (open, approval, at risk, breached)</td><td>Should</td></tr>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>Traceability snippet</h2>
+  <p>Requirements map to implementation and acceptance tests (<code>docs/08-traceability-matrix.md</code>).</p>
+  <table>
+    <tr><th>Req</th><th>Summary</th><th>Build</th><th>Test</th></tr>
+    <tr><td>FR-01</td><td>Capture request</td><td><code>/requests/new</code></td><td>AT-01</td></tr>
+    <tr><td>FR-05</td><td>Triage</td><td><code>triageRequest</code></td><td>AT-05</td></tr>
+    <tr><td>FR-06</td><td>Manager gate</td><td><code>approveRequest</code></td><td>AT-06, AT-07</td></tr>
+    <tr><td>FR-04</td><td>SLA badges</td><td><code>SlaBadge</code>, <code>sla.ts</code></td><td>AT-04, AT-09</td></tr>
+    <tr><td>FR-12</td><td>Dashboard</td><td><code>src/app/page.tsx</code></td><td>AT-04</td></tr>
+  </table>
+
+  <h2>UI surfaces (prototype)</h2>
+  <p>Dark ops control board — SLA posture visible without monthly exports.</p>
+  <div class="screens">
+    <div class="shot"><strong>Control board</strong>Stat cards, activity feed, attention counts</div>
+    <div class="shot"><strong>Request queue</strong>Filters, SLA badges, countdown on rows</div>
+    <div class="shot"><strong>Request detail</strong>Timeline, SLA panel, triage &amp; approval actions</div>
+  </div>
+
+  <h2>Outcomes &amp; links</h2>
+  <ul style="margin: 4px 0 8px; padding-left: 18px; font-size: 9.5pt;">
+    <li>Structured intake replaces email threads for demo walkthroughs</li>
+    <li>Dual approval with immutable timeline events</li>
+    <li>Priority-based SLA clocks with live posture on list and detail</li>
+  </ul>
+  <p><strong>Repo:</strong> github.com/jah-guide/flowgate · <strong>Analysis pack:</strong> <code>docs/</code> · <strong>Run:</strong> <code>npm install</code> + <code>npm run dev</code> (Node 20+)</p>
+
+  <p class="footer">Print to PDF (2 pages): browser Print → Save as PDF, A4, default margins. Case study derived from FlowGate analysis pack · jah-guide portfolio · 2026.</p>
+
+</body>
+</html>

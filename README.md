@@ -97,6 +97,8 @@ const bohlokoa = {
 
 Ops / SLA workflow case study — intake → triage → dual approval with live SLA posture.
 
+**Printable 2-page case study (CV / LinkedIn):** [case-studies/flowgate-case-study.html](./case-studies/flowgate-case-study.html) · [Markdown](./case-studies/flowgate-case-study.md)
+
 ### Highlights
 
 - Structured service-request intake and triage
