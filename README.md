@@ -20,6 +20,19 @@ Turning ideas into production-ready products.
 
 ---
 
+## Live demos
+
+Interactive case studies on **GitHub Pages** (publish via Actions):
+
+| Project | Demo |
+| --- | --- |
+| [FlowGate](https://github.com/jah-guide/flowgate) | [jah-guide.github.io/flowgate](https://jah-guide.github.io/flowgate/) |
+| [SourceMap](https://github.com/jah-guide/sourcemap) | [jah-guide.github.io/sourcemap](https://jah-guide.github.io/sourcemap/) |
+
+> Pages go live after the GitHub Actions workflow completes in each repo. If a link 404s, check **Actions** on the repo.
+
+---
+
 # ⚡ About Me
 
 ```typescript
