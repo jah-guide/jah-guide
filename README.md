@@ -28,6 +28,7 @@ Interactive case studies on **GitHub Pages** (publish via Actions):
 | --- | --- |
 | [FlowGate](https://github.com/jah-guide/flowgate) | [jah-guide.github.io/flowgate](https://jah-guide.github.io/flowgate/) |
 | [SourceMap](https://github.com/jah-guide/sourcemap) | [jah-guide.github.io/sourcemap](https://jah-guide.github.io/sourcemap/) |
+| [JournalX](https://github.com/jah-guide/journalx-dashboard) | [jah-guide.github.io/journalx-dashboard](https://jah-guide.github.io/journalx-dashboard/) |
 
 > Pages go live after the GitHub Actions workflow completes in each repo. If a link 404s, check **Actions** on the repo.
 
@@ -110,6 +111,7 @@ const bohlokoa = {
 |---------|----------------|
 | **FlowGate** | [jah-guide.github.io/flowgate](https://jah-guide.github.io/flowgate/) |
 | **SourceMap** | [jah-guide.github.io/sourcemap](https://jah-guide.github.io/sourcemap/) |
+| **JournalX** | [jah-guide.github.io/journalx-dashboard](https://jah-guide.github.io/journalx-dashboard/) |
 
 ---
 
@@ -141,7 +143,7 @@ Data & integrations case study — systems inventory, field mappings, and change
 
 ## 📊 [JournalX](https://github.com/jah-guide/journalx-dashboard)
 
-A focused trading journal built around risk-to-reward—not money.
+A focused trading journal built around risk-to-reward—not money. **[Live demo →](https://jah-guide.github.io/journalx-dashboard/)**
 
 JournalX helps traders capture market ideas before execution, review outcomes afterward, and identify the conditions that create their edge.
 
