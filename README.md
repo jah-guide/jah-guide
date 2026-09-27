@@ -104,11 +104,20 @@ const bohlokoa = {
 
 ---
 
+# 🌐 Live demos
+
+| Project | GitHub Pages |
+|---------|----------------|
+| **FlowGate** | [jah-guide.github.io/flowgate](https://jah-guide.github.io/flowgate/) |
+| **SourceMap** | [jah-guide.github.io/sourcemap](https://jah-guide.github.io/sourcemap/) |
+
+---
+
 # 🔭 Featured Projects
 
 ## 📈 [FlowGate](https://github.com/jah-guide/flowgate)
 
-Ops / SLA workflow case study — intake → triage → dual approval with live SLA posture.
+Ops / SLA workflow case study — intake → triage → dual approval with live SLA posture. **[Live demo →](https://jah-guide.github.io/flowgate/)**
 
 **Printable 2-page case study (CV / LinkedIn):** [case-studies/flowgate-case-study.html](./case-studies/flowgate-case-study.html) · [Markdown](./case-studies/flowgate-case-study.md)
 
@@ -121,7 +130,7 @@ Ops / SLA workflow case study — intake → triage → dual approval with live 
 
 ## 🗺️ [SourceMap](https://github.com/jah-guide/sourcemap)
 
-Data & integrations case study — systems inventory, field mappings, and change impact analysis.
+Data & integrations case study — systems inventory, field mappings, and change impact analysis. **[Live demo →](https://jah-guide.github.io/sourcemap/)**
 
 ### Highlights
 
