@@ -208,6 +208,12 @@ Enterprise claim approval workflow — lecturer → coordinator → manager, wit
 
 ---
 
+# 🤖 Skills / GenAI
+
+**[Preflight](https://github.com/jah-guide/preflight)** — open agent skills that force requirements, traceability, and adversarial stress-tests before AI ships an answer. Cursor/Claude-native skills plus GitHub Copilot checklists. *Design first. Build once.*
+
+---
+
 # 🎯 Current Focus
 
 ✅ Systems Analysis & Requirements
