@@ -174,35 +174,23 @@ Enterprise claim approval workflow — lecturer → coordinator → manager, wit
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=jah-guide&show_icons=true&theme=tokyonight&hide_border=true"/>
+<img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=jah-guide&theme=tokyonight"/>
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jah-guide&layout=compact&theme=tokyonight&hide_border=true"/>
+<img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=jah-guide&theme=tokyonight"/>
 
 </div>
 
 <div align="center">
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=jah-guide&theme=tokyonight&hide_border=true"/>
+<img src="https://streak-stats.demolab.com/?user=jah-guide&theme=tokyonight&hide_border=true"/>
 
 </div>
-
----
-
-# 🧬 GitHub Activity
 
 <div align="center">
 
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=jah-guide&theme=tokyonight"/>
 
-</div>
-
----
-
-# 🌐 Contribution Graph
-
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=jah-guide&theme=tokyo-night&hide_border=true"/>
+**[View contribution graph on GitHub →](https://github.com/jah-guide)**
 
 </div>
 
